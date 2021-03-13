@@ -41,10 +41,4 @@
             android:shadowDy="0"
             android:shadowRadius="10" />
     </TableRow>
-    <View
-        android:id="@+id/schedule_format_divider_i"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/black"
-        android:layout_marginTop="15dp"/>
 </TableLayout>

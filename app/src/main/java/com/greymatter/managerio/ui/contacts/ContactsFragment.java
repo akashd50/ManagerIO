@@ -32,15 +32,6 @@ public class ContactsFragment extends Fragment {
 
         contactListViewAdapter.updateItems(ContactsDBHelper.getAll());
         contactListViewAdapter.notifyDataSetChanged();
-        /*final TextView textView = root.findViewById(R.id.text_dashboard);
-        contactViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });*/
-
-
 
         final FloatingActionButton addNewContactButton = root.findViewById(R.id.add_new_contact);
         addNewContactButton.setOnClickListener(new View.OnClickListener() {
