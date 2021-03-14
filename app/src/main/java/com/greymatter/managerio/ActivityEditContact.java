@@ -8,12 +8,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.greymatter.managerio.db.helpers.ContactsDBHelper;
 import com.greymatter.managerio.objects.Contact;
 import com.greymatter.managerio.objects.ContactsValidator;
@@ -28,7 +23,7 @@ public class ActivityEditContact extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_contact);
+        setContentView(R.layout.activity_view_edit_contact);
 
         currentContactId = getIntent().getLongExtra("contact_id", -1);
 

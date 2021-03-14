@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/add_contact_dialog"
+    android:layout_width="350dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/purple_700">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textAlignment="center"
+            style="@style/ToolbarTextStyle"
+            android:text="@string/add_contact" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <EditText
+        android:id="@+id/edit_contact_first_name"
+        style="@style/EditTextFieldStyle"
+        android:hint="@string/contact_first_name"
+        android:inputType="textPersonName"/>
+
+    <EditText
+        android:id="@+id/edit_contact_last_name"
+        style="@style/EditTextFieldStyle"
+        android:hint="@string/contact_last_name"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/edit_contact_mobile_no"
+        style="@style/EditTextFieldStyle"
+        android:hint="@string/contact_mobile_no"
+        android:inputType="phone"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black"/>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/perm_denied_grant_perm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_background"
+            android:text="@string/cancel"
+            android:layout_weight="1.0"/>
+        <View
+            android:id="@+id/perm_denied_divider_ii"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/black"/>
+        <Button
+            android:id="@+id/perm_denied_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_background"
+            android:text="@string/done"
+            android:layout_weight="1.0"/>
+    </TableRow>
+</LinearLayout>
