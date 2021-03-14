@@ -30,6 +30,12 @@ public class ContactsDBHelper {
         return parseCursorData(cursor);
     }
 
+    public static List<Contact> getWithId(long id) {
+        String[] params = {Long.toString(id)};
+        Cursor cursor = DBServices.getReadableDB().rawQuery("select * from " + ContactEntry.TABLE_NAME + " where _id=?", params);
+        return parseCursorData(cursor);
+    }
+
     public static List<Contact> get(ContentValues params) {
         StringBuilder selection = new StringBuilder();
         String[] selectionArgs = new String[params.size()];

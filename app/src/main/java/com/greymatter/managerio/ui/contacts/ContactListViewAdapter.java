@@ -26,10 +26,10 @@ public class ContactListViewAdapter extends BaseAdapter {
             convertView = inflater.inflate(R.layout.contact_view_item, container, false);
         }
 
-        ((TextView) convertView.findViewById(R.id.contact_view_first_name))
-                .setText(getItem(position).getFirstName());
-        ((TextView) convertView.findViewById(R.id.contact_view_last_name))
-                .setText(getItem(position).getLastName());
+        String name = getItem(position).getFirstName() + " " + getItem(position).getLastName();
+
+        ((TextView) convertView.findViewById(R.id.contact_view_item_name))
+                .setText(name);
         return convertView;
     }
 

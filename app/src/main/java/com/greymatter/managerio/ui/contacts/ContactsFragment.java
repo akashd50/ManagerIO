@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -30,6 +31,15 @@ public class ContactsFragment extends Fragment {
         contactListViewAdapter = new ContactListViewAdapter(getContext());
         contactsListView.setAdapter(contactListViewAdapter);
 
+        contactsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getContext(), ActivityEditContact.class);
+                intent.putExtra("contact_id", adapterView.getItemIdAtPosition(i));
+                startActivity(intent);
+            }
+        });
+
         contactListViewAdapter.updateItems(ContactsDBHelper.getAll());
         contactListViewAdapter.notifyDataSetChanged();
 
@@ -38,10 +48,17 @@ public class ContactsFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getContext(), ActivityEditContact.class);
+                i.putExtra("contact_id", -1);
                 startActivity(i);
             }
         });
 
         return root;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        contactListViewAdapter.notifyDataSetChanged();
     }
 }
