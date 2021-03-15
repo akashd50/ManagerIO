@@ -1,4 +1,6 @@
-package com.greymatter.managerio.objects;
+package com.greymatter.managerio.ui.contacts.uihelpers;
+
+import com.greymatter.managerio.objects.Contact;
 
 public class ContactsValidator {
     public static boolean validateContact(Contact contact) throws Exception {

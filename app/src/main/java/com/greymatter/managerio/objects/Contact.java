@@ -15,35 +15,31 @@ public class Contact {
         return id;
     }
 
-    public Contact setId(int id) {
+    public void setId(int id) {
         this.id = id;
-        return this;
     }
 
     public String getFirstName() {
         return firstName;
     }
 
-    public Contact setFirstName(String firstName) {
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
-        return this;
     }
 
     public String getLastName() {
         return lastName;
     }
 
-    public Contact setLastName(String lastName) {
+    public void setLastName(String lastName) {
         this.lastName = lastName;
-        return this;
     }
 
     public String getMobileNo() {
         return mobileNo;
     }
 
-    public Contact setMobileNo(String mobileNo) {
+    public void setMobileNo(String mobileNo) {
         this.mobileNo = mobileNo;
-        return this;
     }
 }

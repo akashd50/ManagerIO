@@ -11,11 +11,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.greymatter.managerio.db.helpers.ContactsDBHelper;
 import com.greymatter.managerio.objects.Contact;
-import com.greymatter.managerio.objects.ContactsValidator;
+import com.greymatter.managerio.ui.contacts.uihelpers.ContactsValidator;
 
 import java.util.List;
 
-public class ActivityEditContact extends AppCompatActivity {
+public class ActivityViewContact extends AppCompatActivity {
     private TextView initialsView;
     private EditText firstNameField, lastNameField, mobileNoField;
     private Button cancelButton, doneButton;
@@ -23,7 +23,7 @@ public class ActivityEditContact extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_edit_contact);
+        setContentView(R.layout.activity_view_contact);
 
         currentContactId = getIntent().getLongExtra("contact_id", -1);
 

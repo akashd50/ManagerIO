@@ -7,7 +7,7 @@ import static com.greymatter.managerio.db.SQLTables.*;
 
 
 public class DBOpenHelper extends SQLiteOpenHelper {
-    public static final int DATABASE_VERSION = 1;
+    public static final int DATABASE_VERSION = 2;
     public static final String DATABASE_NAME = "managerio.db";
 
     public DBOpenHelper(Context context) {
@@ -15,11 +15,15 @@ public class DBOpenHelper extends SQLiteOpenHelper {
     }
 
     public void onCreate(SQLiteDatabase db) {
+        db.execSQL(SQL_CREATE_APP_USER_TABLE);
         db.execSQL(SQL_CREATE_CONTACTS_TABLE);
+        db.execSQL(SQL_CREATE_TRANSACTIONS_TABLE);
     }
 
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL(SQL_DELETE_APP_USER_TABLE);
         db.execSQL(SQL_DELETE_CONTACTS_TABLE);
+        db.execSQL(SQL_DELETE_TRANSACTIONS_TABLE);
         onCreate(db);
     }
 

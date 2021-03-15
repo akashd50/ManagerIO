@@ -6,9 +6,13 @@
     <string name="add_contact">Add Contact</string>
     <string name="contact_first_name">First Name</string>
     <string name="contact_last_name">Last Name</string>
+    <string name="contact_mobile_cc">CC</string>
     <string name="contact_mobile_no">Mobile no.</string>
     <string name="cancel">Cancel</string>
     <string name="done">Done</string>
     <string name="contact_information">Contact Information</string>
     <string name="edit_contact_initials">AA</string>
+
+    <string name="india_cc">+91</string>
+    <string name="contact_added_success">Contact Added Successfully</string>
 </resources>

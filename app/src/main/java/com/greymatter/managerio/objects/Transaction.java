@@ -3,8 +3,8 @@ package com.greymatter.managerio.objects;
 import java.time.LocalDateTime;
 
 public class Transaction {
-    private int contactID;
-    private double amount;
+    private int id, owningUserId, contactID;
+    private float amount;
     private LocalDateTime transactionDateTime;
     public Transaction() {
         contactID = -1;
@@ -16,26 +16,43 @@ public class Transaction {
         return contactID;
     }
 
-    public Transaction setContactID(int contactID) {
+    public void setContactID(int contactID) {
         this.contactID = contactID;
-        return this;
     }
 
-    public double getAmount() {
+    public float getAmount() {
         return amount;
     }
 
-    public Transaction setAmount(double amount) {
+    public void setAmount(float amount) {
         this.amount = amount;
-        return this;
     }
 
     public LocalDateTime getTransactionDateTime() {
         return transactionDateTime;
     }
 
-    public Transaction setTransactionDateTime(LocalDateTime transactionDateTime) {
+    public void setTransactionDateTime(LocalDateTime transactionDateTime) {
         this.transactionDateTime = transactionDateTime;
-        return this;
+    }
+
+    public void setTransactionDateTime(String transactionDateTime) {
+        this.transactionDateTime = LocalDateTime.parse(transactionDateTime);
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getOwningUserId() {
+        return owningUserId;
+    }
+
+    public void setOwningUserId(int owningUserId) {
+        this.owningUserId = owningUserId;
     }
 }
