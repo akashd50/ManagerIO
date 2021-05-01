@@ -2,11 +2,12 @@ package com.greymatter.managerio.objects;
 
 import java.time.LocalDateTime;
 
-public class Transaction {
-    private int id, owningUserId, contactID;
+public class Transaction extends AObject {
+    private int owningUserId, contactID;
     private float amount;
     private LocalDateTime transactionDateTime;
     public Transaction() {
+        super();
         contactID = -1;
         amount = 0;
         transactionDateTime = LocalDateTime.now();
@@ -38,14 +39,6 @@ public class Transaction {
 
     public void setTransactionDateTime(String transactionDateTime) {
         this.transactionDateTime = LocalDateTime.parse(transactionDateTime);
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public int getOwningUserId() {

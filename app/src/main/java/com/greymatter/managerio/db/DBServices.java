@@ -3,11 +3,13 @@ package com.greymatter.managerio.db;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.greymatter.managerio.db.helpers.ContactsDBHelper;
 import com.greymatter.managerio.db.helpers.DBOpenHelper;
 
 public class DBServices {
     private static DBOpenHelper dbOpenHelper;
     private static SQLiteDatabase writableDB, readableDB;
+    private static ContactsDBHelper contactsDBHelper;
     public static void initDB(Context context) {
         dbOpenHelper = new DBOpenHelper(context);
     }
@@ -28,6 +30,13 @@ public class DBServices {
             writableDB = dbOpenHelper.getWritableDatabase();
         }
         return writableDB;
+    }
+
+    public static ContactsDBHelper getContactsDBHelper() {
+        if(contactsDBHelper==null) {
+            contactsDBHelper = new ContactsDBHelper();
+        }
+        return contactsDBHelper;
     }
 
     public static void close() {

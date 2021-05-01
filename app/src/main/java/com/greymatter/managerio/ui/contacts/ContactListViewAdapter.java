@@ -33,8 +33,14 @@ public class ContactListViewAdapter extends BaseAdapter {
         return convertView;
     }
 
-    public void updateItems(List<Contact> list) {
+    public void addItems(List<Contact> list) {
         items.addAll(list);
+        notifyDataSetChanged();
+    }
+
+    public void addItem(Contact contact) {
+        items.add(contact);
+        notifyDataSetChanged();
     }
 
     @Override

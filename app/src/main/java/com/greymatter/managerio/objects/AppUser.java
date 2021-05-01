@@ -1,19 +1,10 @@
 package com.greymatter.managerio.objects;
 
-public class AppUser {
-    private int id;
+public class AppUser extends AObject {
     private String username, email;
 
     public AppUser() {
-
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+        super();
     }
 
     public String getUsername() {

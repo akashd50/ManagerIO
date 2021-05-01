@@ -1,22 +1,12 @@
 package com.greymatter.managerio.objects;
 
-public class Contact {
-    private int id;
+public class Contact extends AObject {
     private String firstName, lastName, mobileNo;
-
     public Contact() {
-        id = -1;
+        super();
         firstName = "";
         lastName = "";
         mobileNo = "";
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getFirstName() {

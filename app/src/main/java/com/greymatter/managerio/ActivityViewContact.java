@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.greymatter.managerio.db.DBServices;
 import com.greymatter.managerio.db.helpers.ContactsDBHelper;
 import com.greymatter.managerio.objects.Contact;
 import com.greymatter.managerio.ui.contacts.uihelpers.ContactsValidator;
@@ -69,7 +70,7 @@ public class ActivityViewContact extends AppCompatActivity {
 
                     try{
                         ContactsValidator.validateContact(c);
-                        ContactsDBHelper.insert(c);
+                        DBServices.getContactsDBHelper().insert(c);
                         Toast.makeText(getApplicationContext(), "New Contact Added", Toast.LENGTH_SHORT).show();
                         onBackPressed();
                     }catch (Exception e) {
@@ -81,7 +82,7 @@ public class ActivityViewContact extends AppCompatActivity {
     };
 
     private void updateInitialsView() {
-        List<Contact> queryResult = ContactsDBHelper.getWithId(currentContactId);
+        List<Contact> queryResult = DBServices.getContactsDBHelper().getWithId((int)currentContactId);
         if (queryResult.size() > 0) {
             Contact c = queryResult.get(0);
             firstNameField.setText(c.getFirstName());
