@@ -21,6 +21,7 @@ public class ContactsFragmentUIHelper {
 
         ContactsValidator.validateContact(c);
         DBServices.getContactsDBHelper().insert(c);
+
         return c;
     }
 }

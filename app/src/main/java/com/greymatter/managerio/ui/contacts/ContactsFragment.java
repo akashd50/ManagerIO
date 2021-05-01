@@ -59,7 +59,7 @@ public class ContactsFragment extends Fragment {
         try{
             Contact newContact = ContactsFragmentUIHelper.tryAndAddContactFromDialog(addContactDialog);
             addContactDialog.dismiss();
-            contactListViewAdapter.addItem(newContact);
+            contactListViewAdapter.setItems(DBServices.getContactsDBHelper().getAll());
             Toast.makeText(getContext(), getString(R.string.contact_added_success), Toast.LENGTH_SHORT).show();
         }catch (Exception e) {
             Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
