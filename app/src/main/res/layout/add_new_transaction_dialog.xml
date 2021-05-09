@@ -41,7 +41,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <Button
-            android:id="@+id/add_contact_dialog_cancel"
+            android:id="@+id/add_transaction_dialog_cancel"
             style="@style/DialogButtonStyle"
             android:text="@string/cancel"
             android:layout_weight="1.0"/>
@@ -50,7 +50,7 @@
             android:layout_height="match_parent"
             android:background="@color/black"/>
         <Button
-            android:id="@+id/add_contact_dialog_done"
+            android:id="@+id/add_transaction_dialog_done"
             style="@style/DialogButtonStyle"
             android:text="@string/done"
             android:layout_weight="1.0"/>
