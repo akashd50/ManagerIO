@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.greymatter.managerio.ActivityViewContact;
+import com.greymatter.managerio.AppServices;
 import com.greymatter.managerio.R;
 import com.greymatter.managerio.db.DBServices;
 import com.greymatter.managerio.db.helpers.ContactsDBHelper;
@@ -37,7 +38,7 @@ public class ContactsFragment extends Fragment {
         contactListViewAdapter = new ContactListViewAdapter(getContext());
         contactsListView.setAdapter(contactListViewAdapter);
         contactsListView.setOnItemClickListener(listItemClickListener);
-        contactListViewAdapter.addItems(DBServices.getContactsDBHelper().getAll());
+        contactListViewAdapter.setItems(DBServices.getContactsDBHelper().getAllOwnedBy(AppServices.getActiveUser().getId()));
 
         addNewContactButton = root.findViewById(R.id.add_new_contact_floating_button);
         addNewContactButton.setOnClickListener(viewOnClickListener);
@@ -59,7 +60,7 @@ public class ContactsFragment extends Fragment {
         try{
             ContactsFragmentUIHelper.tryAndAddContactFromDialog(addContactDialog);
             addContactDialog.dismiss();
-            contactListViewAdapter.setItems(DBServices.getContactsDBHelper().getAll());
+            contactListViewAdapter.setItems(DBServices.getContactsDBHelper().getAllOwnedBy(AppServices.getActiveUser().getId()));
             Toast.makeText(getContext(), getString(R.string.contact_added_success), Toast.LENGTH_SHORT).show();
         }catch (Exception e) {
             Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();

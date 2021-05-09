@@ -3,9 +3,11 @@ package com.greymatter.managerio.ui.contacts.uihelpers;
 import android.app.Dialog;
 import android.widget.EditText;
 
+import com.greymatter.managerio.AppServices;
 import com.greymatter.managerio.R;
 import com.greymatter.managerio.db.DBServices;
 import com.greymatter.managerio.db.helpers.ContactsDBHelper;
+import com.greymatter.managerio.objects.AppUser;
 import com.greymatter.managerio.objects.Contact;
 
 public class ContactsFragmentUIHelper {
@@ -18,7 +20,7 @@ public class ContactsFragmentUIHelper {
         c.setFirstName(fn.getText().toString());
         c.setLastName(ln.getText().toString());
         c.setMobileNo(mobile.getText().toString());
-
+        c.setOwningUser(AppServices.getActiveUser());
         ContactsValidator.validateContact(c);
         DBServices.getContactsDBHelper().insert(c);
 

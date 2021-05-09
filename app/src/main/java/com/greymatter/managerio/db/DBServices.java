@@ -5,11 +5,13 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.greymatter.managerio.db.helpers.ContactsDBHelper;
 import com.greymatter.managerio.db.helpers.DBOpenHelper;
+import com.greymatter.managerio.db.helpers.UsersDBHelper;
 
 public class DBServices {
     private static DBOpenHelper dbOpenHelper;
     private static SQLiteDatabase writableDB, readableDB;
     private static ContactsDBHelper contactsDBHelper;
+    private static UsersDBHelper usersDBHelper;
     public static void initDB(Context context) {
         dbOpenHelper = new DBOpenHelper(context);
     }
@@ -37,6 +39,13 @@ public class DBServices {
             contactsDBHelper = new ContactsDBHelper();
         }
         return contactsDBHelper;
+    }
+
+    public static UsersDBHelper getUsersDBHelper() {
+        if(usersDBHelper==null) {
+            usersDBHelper = new UsersDBHelper();
+        }
+        return usersDBHelper;
     }
 
     public static void close() {

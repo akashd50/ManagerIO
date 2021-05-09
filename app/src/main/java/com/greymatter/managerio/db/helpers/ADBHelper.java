@@ -83,4 +83,12 @@ public abstract class ADBHelper<T> {
         }
         return object.toString();
     }
+
+    public int getInt(Cursor cursor, String column) {
+        return Integer.parseInt(cursor.getString(cursor.getColumnIndexOrThrow(column)));
+    }
+
+    public String getString(Cursor cursor, String column) {
+        return cursor.getString(cursor.getColumnIndexOrThrow(column));
+    }
 }

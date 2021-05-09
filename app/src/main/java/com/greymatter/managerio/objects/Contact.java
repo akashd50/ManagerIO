@@ -2,6 +2,7 @@ package com.greymatter.managerio.objects;
 
 public class Contact extends AObject {
     private String firstName, lastName, mobileNo;
+    private AppUser owningUser;
     public Contact() {
         super();
         firstName = "";
@@ -31,5 +32,13 @@ public class Contact extends AObject {
 
     public void setMobileNo(String mobileNo) {
         this.mobileNo = mobileNo;
+    }
+
+    public AppUser getOwningUser() {
+        return owningUser;
+    }
+
+    public void setOwningUser(AppUser owningUser) {
+        this.owningUser = owningUser;
     }
 }

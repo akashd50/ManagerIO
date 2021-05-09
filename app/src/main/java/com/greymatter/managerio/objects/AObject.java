@@ -2,8 +2,7 @@ package com.greymatter.managerio.objects;
 
 public abstract class AObject {
     private int id;
-    public AObject() {
-    }
+    public AObject() {}
 
     public int getId() {
         return id;
