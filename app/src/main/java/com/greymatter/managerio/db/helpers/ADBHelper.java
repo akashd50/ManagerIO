@@ -3,16 +3,34 @@ package com.greymatter.managerio.db.helpers;
 import android.content.ContentValues;
 import android.database.Cursor;
 import com.greymatter.managerio.db.DBServices;
+import com.greymatter.managerio.db.contracts.ContactContract;
 import java.util.ArrayList;
 import java.util.List;
 
 public abstract class ADBHelper<T> {
-    public ADBHelper() {
-    }
+    public ADBHelper() {}
 
     public abstract String[] getTableColumns();
     public abstract String getTableName();
     public abstract T createObjectFromCursor(Cursor cursor);
+
+    public int getNextId() {
+        int idToReturn = -1;
+        String query = "SELECT * FROM SQLITE_SEQUENCE";
+        Cursor cursor = DBServices.getReadableDB().rawQuery(query, null);
+        while(cursor.moveToNext()) {
+            try {
+                if(cursor.getString(cursor.getColumnIndex("name")).compareTo(getTableName()) == 0) {
+                    idToReturn = Integer.parseInt(cursor.getString(cursor.getColumnIndex("seq")));
+                    break;
+                }
+            }catch (IllegalArgumentException e) {
+                e.printStackTrace();
+            }
+        }
+        cursor.close();
+        return idToReturn;
+    }
 
     public List<T> parseCursorData(Cursor cursor) {
         ArrayList<T> objects = new ArrayList<>();

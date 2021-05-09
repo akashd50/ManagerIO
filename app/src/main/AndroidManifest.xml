@@ -19,7 +19,7 @@
         </activity>
         <activity
             android:name=".ActivityViewContact"
-            android:label="@string/add_contact">
+            android:label="@string/contact_info">
             <intent-filter>
                 <action android:name="android.intent.action.EDIT" />
                 <category android:name="android.intent.category.DEFAULT" />

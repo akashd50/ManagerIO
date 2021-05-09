@@ -63,4 +63,6 @@ public class ContactsDBHelper extends ADBHelper<Contact> {
         cv.put(ContactEntry.OWNING_USER_ID, userId);
         return get(cv);
     }
+
+
 }

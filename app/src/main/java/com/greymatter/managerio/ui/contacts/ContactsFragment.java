@@ -57,7 +57,7 @@ public class ContactsFragment extends Fragment {
 
     private void addNewContact() {
         try{
-            Contact newContact = ContactsFragmentUIHelper.tryAndAddContactFromDialog(addContactDialog);
+            ContactsFragmentUIHelper.tryAndAddContactFromDialog(addContactDialog);
             addContactDialog.dismiss();
             contactListViewAdapter.setItems(DBServices.getContactsDBHelper().getAll());
             Toast.makeText(getContext(), getString(R.string.contact_added_success), Toast.LENGTH_SHORT).show();
