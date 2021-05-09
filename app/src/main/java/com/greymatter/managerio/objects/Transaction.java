@@ -3,22 +3,14 @@ package com.greymatter.managerio.objects;
 import java.time.LocalDateTime;
 
 public class Transaction extends AObject {
-    private int owningUserId, contactID;
+    private Contact associatedContact;
+    private AppUser owningUser;
     private float amount;
     private LocalDateTime transactionDateTime;
     public Transaction() {
         super();
-        contactID = -1;
         amount = 0;
         transactionDateTime = LocalDateTime.now();
-    }
-
-    public int getContactID() {
-        return contactID;
-    }
-
-    public void setContactID(int contactID) {
-        this.contactID = contactID;
     }
 
     public float getAmount() {
@@ -41,11 +33,19 @@ public class Transaction extends AObject {
         this.transactionDateTime = LocalDateTime.parse(transactionDateTime);
     }
 
-    public int getOwningUserId() {
-        return owningUserId;
+    public Contact getAssociatedContact() {
+        return associatedContact;
     }
 
-    public void setOwningUserId(int owningUserId) {
-        this.owningUserId = owningUserId;
+    public void setAssociatedContact(Contact associatedContact) {
+        this.associatedContact = associatedContact;
+    }
+
+    public AppUser getOwningUser() {
+        return owningUser;
+    }
+
+    public void setOwningUser(AppUser owningUser) {
+        this.owningUser = owningUser;
     }
 }

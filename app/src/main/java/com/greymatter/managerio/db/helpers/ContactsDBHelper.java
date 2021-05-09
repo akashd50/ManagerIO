@@ -2,17 +2,10 @@ package com.greymatter.managerio.db.helpers;
 
 import android.content.ContentValues;
 import android.database.Cursor;
-
 import com.greymatter.managerio.db.DBServices;
-import com.greymatter.managerio.db.containers.ContactsCursorContainer;
-import com.greymatter.managerio.db.contracts.AppUserContract;
 import com.greymatter.managerio.db.contracts.ContactContract.*;
-import com.greymatter.managerio.objects.AppUser;
 import com.greymatter.managerio.objects.Contact;
-
-import java.util.ArrayList;
 import java.util.List;
-
 
 public class ContactsDBHelper extends ADBHelper<Contact> {
     private static final String[] columnNames = {ContactEntry._ID, ContactEntry.OWNING_USER_ID, ContactEntry.CONTACT_FIRST_NAME,
@@ -66,6 +59,4 @@ public class ContactsDBHelper extends ADBHelper<Contact> {
         cv.put(ContactEntry.OWNING_USER_ID, userId);
         return get(cv);
     }
-
-
 }
