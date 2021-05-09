@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
@@ -20,6 +19,7 @@ import com.greymatter.managerio.AppServices;
 import com.greymatter.managerio.R;
 import com.greymatter.managerio.db.DBServices;
 import com.greymatter.managerio.ui.contacts.uihelpers.ContactsFragmentUIHelper;
+import com.greymatter.managerio.ui.adapters.ContactListViewAdapter;
 
 public class ContactsFragment extends Fragment {
     private ContactListViewAdapter contactListViewAdapter;

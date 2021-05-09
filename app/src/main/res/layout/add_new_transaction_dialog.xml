@@ -15,14 +15,15 @@
     </androidx.appcompat.widget.Toolbar>
 
     <EditText
-        android:id="@+id/add_transaction_amount"
+        android:id="@+id/add_new_transaction_amount"
         style="@style/EditTextFieldStyle"
         android:hint="@string/transaction_amount"
         android:inputType="numberDecimal"
+        android:ems="10"
         android:autofillHints="" />
 
     <DatePicker
-        android:id="@+id/add_transaction_date"
+        android:id="@+id/add_new_transaction_date"
         style="@style/EditTextFieldStyle"
         android:layout_height="170dp"
         android:autofillHints=""
