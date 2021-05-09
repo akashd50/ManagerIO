@@ -1,4 +1,4 @@
-package com.greymatter.managerio;
+package com.greymatter.managerio.ui.activities;
 
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +9,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.greymatter.managerio.R;
 import com.greymatter.managerio.db.DBServices;
 import com.greymatter.managerio.db.helpers.ContactsDBHelper;
 import com.greymatter.managerio.objects.Contact;
@@ -19,33 +21,22 @@ import java.util.List;
 public class ActivityViewContact extends AppCompatActivity {
     private TextView initialsView;
     private EditText firstNameField, lastNameField, mobileNoField;
-    private Button cancelButton, doneButton;
+    private FloatingActionButton addTransactionButton;
     private long currentContactId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_contact);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         currentContactId = getIntent().getLongExtra("contact_id", -1);
 
         firstNameField = findViewById(R.id.edit_contact_first_name);
         lastNameField = findViewById(R.id.edit_contact_last_name);
         mobileNoField = findViewById(R.id.edit_contact_mobile_no);
-        cancelButton = findViewById(R.id.edit_contact_cancel);
-        doneButton = findViewById(R.id.edit_contact_done);
         initialsView = findViewById(R.id.edit_contact_initials);
-
-        cancelButton.setOnClickListener(onClickListener);
-        doneButton.setOnClickListener(onClickListener);
-        // For custom toolbar with back button add toolbar in xml and use this:
-        /*mToolbar.setNavigationIcon(R.drawable.ic_arrow);
-        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Your code
-                finish();
-            }
-        });*/
+        addTransactionButton = findViewById(R.id.add_new_transaction_floating_button);
+        addTransactionButton.setOnClickListener(onClickListener);
 
         if (currentContactId != -1) {
             updateInitialsView();
@@ -55,27 +46,18 @@ public class ActivityViewContact extends AppCompatActivity {
         }
     }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
     private final View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             switch (view.getId()) {
-                case R.id.edit_contact_cancel:
-                    onBackPressed();
-                    break;
-                case R.id.edit_contact_done:
-                    Contact c = new Contact();
-                    c.setFirstName(firstNameField.getText().toString());
-                    c.setLastName(lastNameField.getText().toString());
-                    c.setMobileNo(mobileNoField.getText().toString());
+                case R.id.add_new_transaction_floating_button:
 
-                    try{
-                        ContactsValidator.validateContact(c);
-                        DBServices.getContactsDBHelper().insert(c);
-                        Toast.makeText(getApplicationContext(), "New Contact Added", Toast.LENGTH_SHORT).show();
-                        onBackPressed();
-                    }catch (Exception e) {
-                        Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
                     break;
             }
         }
@@ -89,7 +71,8 @@ public class ActivityViewContact extends AppCompatActivity {
             lastNameField.setText(c.getLastName());
             mobileNoField.setText(c.getMobileNo());
 
-            String initials = c.getFirstName().charAt(0) + "" + c.getLastName().charAt(0);
+            String initials = c.getFirstName().toUpperCase().charAt(0) + ""
+                                + c.getLastName().toUpperCase().charAt(0);
             initialsView.setText(initials);
         }
     }

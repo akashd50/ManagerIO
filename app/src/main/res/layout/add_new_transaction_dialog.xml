@@ -10,44 +10,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/purple_500"
-        app:title="@string/add_contact"
+        app:title="@string/add_transaction"
         app:titleTextAppearance="@style/ToolbarTextStyle">
     </androidx.appcompat.widget.Toolbar>
 
     <EditText
-        android:id="@+id/add_contact_first_name"
+        android:id="@+id/add_transaction_amount"
         style="@style/EditTextFieldStyle"
-        android:hint="@string/contact_first_name"
-        android:inputType="textPersonName"
+        android:hint="@string/transaction_amount"
+        android:inputType="numberDecimal"
         android:autofillHints="" />
 
-    <EditText
-        android:id="@+id/add_contact_last_name"
+    <DatePicker
+        android:id="@+id/add_transaction_date"
         style="@style/EditTextFieldStyle"
-        android:hint="@string/contact_last_name"
-        android:inputType="textPersonName"
-        android:autofillHints="" />
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <EditText
-            android:id="@+id/add_contact_cc"
-            android:hint="@string/contact_mobile_cc"
-            android:text="@string/india_cc"
-            android:inputType="phone"
-            style="@style/PhoneEditTextFieldStyle"
-            android:autofillHints=""
-            android:layout_weight="5.0"/>
-        <EditText
-            android:id="@+id/add_contact_mobile_no"
-            android:hint="@string/contact_mobile_no"
-            android:inputType="phone"
-            style="@style/PhoneEditTextFieldStyle"
-            android:autofillHints=""
-            android:layout_weight="1.5"/>
-    </TableRow>
+        android:layout_height="170dp"
+        android:autofillHints=""
+        android:datePickerMode="spinner"
+        android:calendarViewShown="false"
+        android:hint="@string/transaction_date"
+        android:inputType="datetime" />
 
     <View
         android:layout_width="match_parent"

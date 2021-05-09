@@ -1,8 +1,9 @@
-package com.greymatter.managerio;
+package com.greymatter.managerio.ui.activities;
 
 import android.os.Bundle;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.greymatter.managerio.R;
 import com.greymatter.managerio.db.DBServices;
 
 import androidx.appcompat.app.AppCompatActivity;

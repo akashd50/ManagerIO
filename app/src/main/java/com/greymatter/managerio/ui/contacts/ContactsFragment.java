@@ -15,12 +15,10 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.greymatter.managerio.ActivityViewContact;
+import com.greymatter.managerio.ui.activities.ActivityViewContact;
 import com.greymatter.managerio.AppServices;
 import com.greymatter.managerio.R;
 import com.greymatter.managerio.db.DBServices;
-import com.greymatter.managerio.db.helpers.ContactsDBHelper;
-import com.greymatter.managerio.objects.Contact;
 import com.greymatter.managerio.ui.contacts.uihelpers.ContactsFragmentUIHelper;
 
 public class ContactsFragment extends Fragment {
@@ -76,7 +74,7 @@ public class ContactsFragment extends Fragment {
     private final AdapterView.OnItemClickListener listItemClickListener = new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-            Intent intent = new Intent(getContext(), ActivityViewContact.class);
+            Intent intent = new Intent(getActivity(), ActivityViewContact.class);
             intent.putExtra("contact_id", adapterView.getItemIdAtPosition(i));
             startActivity(intent);
         }
