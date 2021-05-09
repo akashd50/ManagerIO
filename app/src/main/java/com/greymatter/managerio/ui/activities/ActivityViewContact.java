@@ -24,7 +24,7 @@ import java.util.List;
 
 public class ActivityViewContact extends AppCompatActivity {
     private TextView initialsView;
-    private EditText firstNameField, lastNameField, mobileNoField;
+    private EditText firstNameField, lastNameField, mobileCCField, mobileNoField;
     private FloatingActionButton addTransactionButton;
     private ListView transactionsListView;
     private TransactionsListViewAdapter transactionsListViewAdapter;
@@ -42,6 +42,7 @@ public class ActivityViewContact extends AppCompatActivity {
         firstNameField = findViewById(R.id.activity_view_contact_first_name);
         lastNameField = findViewById(R.id.activity_view_contact_last_name);
         mobileNoField = findViewById(R.id.activity_view_contact_mobile_no);
+        mobileCCField = findViewById(R.id.activity_view_contact_mobile_cc);
         initialsView = findViewById(R.id.activity_view_contact_initials);
         addTransactionButton = findViewById(R.id.activity_view_contact_add_new_transaction_button);
         addTransactionButton.setOnClickListener(onClickListener);
@@ -50,6 +51,7 @@ public class ActivityViewContact extends AppCompatActivity {
             updateInitialView();
             firstNameField.setEnabled(false);
             lastNameField.setEnabled(false);
+            mobileCCField.setEnabled(false);
             mobileNoField.setEnabled(false);
         }
 
@@ -128,7 +130,7 @@ public class ActivityViewContact extends AppCompatActivity {
         firstNameField.setText(currentContact.getFirstName());
         lastNameField.setText(currentContact.getLastName());
         mobileNoField.setText(currentContact.getMobileNo());
-
+        mobileCCField.setText(currentContact.getCountryCode());
         String initials = currentContact.getFirstName().toUpperCase().charAt(0) + ""
                 + currentContact.getLastName().toUpperCase().charAt(0);
         initialsView.setText(initials);

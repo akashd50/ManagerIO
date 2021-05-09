@@ -15,10 +15,12 @@ public class ContactsFragmentUIHelper {
         Contact c = new Contact();
         EditText fn = dialogWindow.findViewById(R.id.add_contact_first_name);
         EditText ln = dialogWindow.findViewById(R.id.add_contact_last_name);
+        EditText countryCode = dialogWindow.findViewById(R.id.add_contact_cc);
         EditText mobile = dialogWindow.findViewById(R.id.add_contact_mobile_no);
 
         c.setFirstName(fn.getText().toString());
         c.setLastName(ln.getText().toString());
+        c.setCountryCode(countryCode.getText().toString());
         c.setMobileNo(mobile.getText().toString());
         c.setOwningUser(AppServices.getActiveUser());
         ContactsValidator.validateContact(c);

@@ -8,6 +8,7 @@ public class ContactContract {
         public static final String OWNING_USER_ID = "owning_user_id";
         public static final String CONTACT_FIRST_NAME = "contact_first_name";
         public static final String CONTACT_LAST_NAME = "contact_last_name";
+        public static final String CONTACT_MOBILE_CC = "contact_mobile_cc";
         public static final String CONTACT_MOBILE_NO = "contact_mobile_no";
     }
 }

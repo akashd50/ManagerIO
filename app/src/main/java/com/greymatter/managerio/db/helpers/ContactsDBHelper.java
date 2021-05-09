@@ -9,14 +9,15 @@ import java.util.List;
 
 public class ContactsDBHelper extends ADBHelper<Contact> {
     private static final String[] columnNames = {ContactEntry._ID, ContactEntry.OWNING_USER_ID, ContactEntry.CONTACT_FIRST_NAME,
-            ContactEntry.CONTACT_LAST_NAME, ContactEntry.CONTACT_MOBILE_NO};
+            ContactEntry.CONTACT_LAST_NAME, ContactEntry.CONTACT_MOBILE_CC, ContactEntry.CONTACT_MOBILE_NO};
 
     public void insert(Contact contact) {
         ContentValues cv = new ContentValues();
         cv.put(columnNames[1], contact.getOwningUser().getId());
         cv.put(columnNames[2], contact.getFirstName());
         cv.put(columnNames[3], contact.getLastName());
-        cv.put(columnNames[4], contact.getMobileNo());
+        cv.put(columnNames[4], contact.getCountryCode());
+        cv.put(columnNames[5], contact.getMobileNo());
 
         DBServices.getWritableDB().insert(ContactEntry.TABLE_NAME, null, cv);
     }
@@ -37,6 +38,7 @@ public class ContactsDBHelper extends ADBHelper<Contact> {
         c.setId(cursor.getInt(cursor.getColumnIndexOrThrow(ContactEntry._ID)));
         c.setFirstName(cursor.getString(cursor.getColumnIndexOrThrow(ContactEntry.CONTACT_FIRST_NAME)));
         c.setLastName(cursor.getString(cursor.getColumnIndexOrThrow(ContactEntry.CONTACT_LAST_NAME)));
+        c.setCountryCode(cursor.getString(cursor.getColumnIndexOrThrow(ContactEntry.CONTACT_MOBILE_CC)));
         c.setMobileNo(cursor.getString(cursor.getColumnIndexOrThrow(ContactEntry.CONTACT_MOBILE_NO)));
         int owingUserId = getInt(cursor, ContactEntry.OWNING_USER_ID);
         c.setOwningUser(DBServices.getUsersDBHelper().getWithId(owingUserId).get(0));

@@ -39,12 +39,24 @@
                 android:hint="@string/contact_last_name"
                 android:inputType="textPersonName"
                 android:layout_marginBottom="5dp"/>
-            <EditText
-                android:id="@+id/activity_view_contact_mobile_no"
-                android:layout_width="205dp"
-                android:layout_height="50dp"
-                android:hint="@string/contact_mobile_no"
-                android:inputType="phone"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <EditText
+                    android:id="@+id/activity_view_contact_mobile_cc"
+                    android:layout_width="40dp"
+                    android:layout_height="50dp"
+                    android:hint="@string/contact_mobile_cc"
+                    android:inputType="phone"/>
+                <EditText
+                    android:id="@+id/activity_view_contact_mobile_no"
+                    android:layout_width="180dp"
+                    android:layout_height="50dp"
+                    android:hint="@string/contact_mobile_no"
+                    android:inputType="phone"/>
+            </LinearLayout>
+
         </LinearLayout>
     </LinearLayout>
 

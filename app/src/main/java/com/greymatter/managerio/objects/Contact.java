@@ -1,13 +1,22 @@
 package com.greymatter.managerio.objects;
 
 public class Contact extends AObject {
-    private String firstName, lastName, mobileNo;
+    private String firstName, lastName, countryCode, mobileNo;
     private AppUser owningUser;
     public Contact() {
         super();
         firstName = "";
         lastName = "";
+        countryCode = "";
         mobileNo = "";
+    }
+
+    public String getCountryCode() {
+        return countryCode;
+    }
+
+    public void setCountryCode(String countryCode) {
+        this.countryCode = countryCode;
     }
 
     public String getFirstName() {
