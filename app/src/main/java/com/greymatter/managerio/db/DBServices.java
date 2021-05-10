@@ -5,6 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.greymatter.managerio.db.helpers.ContactsDBHelper;
 import com.greymatter.managerio.db.helpers.DBOpenHelper;
+import com.greymatter.managerio.db.helpers.IDSDBHelper;
 import com.greymatter.managerio.db.helpers.TransactionDBHelper;
 import com.greymatter.managerio.db.helpers.UsersDBHelper;
 
@@ -14,6 +15,7 @@ public class DBServices {
     private static ContactsDBHelper contactsDBHelper;
     private static UsersDBHelper usersDBHelper;
     private static TransactionDBHelper transactionDBHelper;
+    private static IDSDBHelper idsdbHelper;
     public static void initDB(Context context) {
         dbOpenHelper = new DBOpenHelper(context);
     }
@@ -55,6 +57,13 @@ public class DBServices {
             transactionDBHelper = new TransactionDBHelper();
         }
         return transactionDBHelper;
+    }
+
+    public static IDSDBHelper getIDSDBHelper() {
+        if(idsdbHelper==null) {
+            idsdbHelper = new IDSDBHelper();
+        }
+        return idsdbHelper;
     }
 
     public static void close() {

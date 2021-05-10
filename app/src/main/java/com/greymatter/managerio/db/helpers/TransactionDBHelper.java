@@ -24,6 +24,7 @@ public class TransactionDBHelper extends ADBHelper<Transaction> {
 
     public void insert(Transaction transaction) {
         ContentValues cv = new ContentValues();
+        cv.put(TransactionEntry._ID, DBServices.getIDSDBHelper().getNextTransactionId());
         cv.put(TransactionEntry.OWNING_USER_ID, transaction.getOwningUser().getId());
         cv.put(TransactionEntry.ASSOCIATED_CONTACT_ID, transaction.getAssociatedContact().getId());
         cv.put(TransactionEntry.TRANSACTION_AMOUNT, transaction.getAmount());

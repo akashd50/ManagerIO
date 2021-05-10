@@ -13,6 +13,7 @@ public class ContactsDBHelper extends ADBHelper<Contact> {
 
     public void insert(Contact contact) {
         ContentValues cv = new ContentValues();
+        cv.put(columnNames[0], DBServices.getIDSDBHelper().getNextContactId());
         cv.put(columnNames[1], contact.getOwningUser().getId());
         cv.put(columnNames[2], contact.getFirstName());
         cv.put(columnNames[3], contact.getLastName());

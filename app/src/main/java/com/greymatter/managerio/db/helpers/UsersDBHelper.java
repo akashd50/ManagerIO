@@ -37,6 +37,7 @@ public class UsersDBHelper extends ADBHelper<AppUser> {
 
     public void insert(AppUser user) {
         ContentValues cv = new ContentValues();
+        cv.put(AppUserEntry._ID, DBServices.getIDSDBHelper().getNextUserId());
         cv.put(AppUserEntry.USERNAME, user.getUsername());
         cv.put(AppUserEntry.USER_EMAIL, user.getEmail());
 

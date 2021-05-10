@@ -73,6 +73,25 @@ public abstract class ADBHelper<T> {
         return parseCursorData(cursor);
     }
 
+    public void update(ContentValues where, ContentValues update) {
+        StringBuilder selection = new StringBuilder();
+        String[] selectionArgs = new String[where.size()];
+
+        int argsIndex = 0;
+        for(String s : getTableColumns()) {
+            if(where.get(s) != null) {
+                if(argsIndex==selectionArgs.length-1) {
+                    selection.append(s).append(" = ?");
+                }else {
+                    selection.append(s).append(" = ? AND ");
+                }
+                selectionArgs[argsIndex++] = convertToString(where.get(s));
+            }
+        }
+
+        DBServices.getWritableDB().update(getTableName(), update, selection.toString(), selectionArgs);
+    }
+
     private String convertToString(Object object) {
         if (object instanceof Integer) {
             return Integer.toString((Integer)object);
