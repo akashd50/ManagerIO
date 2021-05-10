@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/add_contact_dialog"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerVertical="true">
+        <EditText
+            android:id="@+id/activity_login_email"
+            style="@style/EditTextFieldStyle"
+            android:hint="@string/user_email"
+            android:inputType="textPersonName"
+            android:autofillHints="" />
+
+        <EditText
+            android:id="@+id/activity_login_password"
+            style="@style/EditTextFieldStyle"
+            android:hint="@string/user_password"
+            android:inputType="textPassword"
+            android:autofillHints="" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black"/>
+
+        <Button
+            android:id="@+id/activity_login_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/DialogButtonStyle"
+            android:text="@string/login" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/or"
+            android:textAlignment="center"
+            style="@style/NormalTextStyle"
+            android:layout_margin="20dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black"/>
+
+        <Button
+            android:id="@+id/activity_login_create_new_account"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/DialogButtonStyle"
+            android:text="@string/create_new_account" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black"/>
+    </LinearLayout>
+</RelativeLayout>

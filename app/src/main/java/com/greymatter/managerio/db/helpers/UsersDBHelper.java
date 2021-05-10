@@ -44,10 +44,20 @@ public class UsersDBHelper extends ADBHelper<AppUser> {
     }
 
     public List<AppUser> getWithId(int id) {
-        String[] params = {Integer.toString(id)};
-
         ContentValues cv = new ContentValues();
         cv.put(AppUserEntry._ID, id);
         return get(cv);
+    }
+
+    public List<AppUser> getWithEmail(String email) {
+        ContentValues cv = new ContentValues();
+        cv.put(AppUserEntry.USER_EMAIL, email);
+        return get(cv);
+    }
+
+    public boolean contains(AppUser user) {
+        ContentValues cv = new ContentValues();
+        cv.put(AppUserEntry.USER_EMAIL, user.getEmail());
+        return get(cv).size() == 1;
     }
 }
