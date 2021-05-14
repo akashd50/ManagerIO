@@ -19,6 +19,7 @@ public class SQLTables {
     public static final String SQL_CREATE_APP_USER_TABLE =
             "create table if not exists " + AppUserEntry.TABLE_NAME + " (" +
                     AppUserEntry._ID + " integer primary key," +
+                    AppUserEntry.CONTACTS_IMPORTED + " integer," +
                     AppUserEntry.USERNAME + " text," +
                     AppUserEntry.USER_EMAIL + " text)";
 

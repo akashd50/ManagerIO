@@ -131,8 +131,15 @@ public class ActivityViewContact extends AppCompatActivity {
         lastNameField.setText(currentContact.getLastName());
         mobileNoField.setText(currentContact.getMobileNo());
         mobileCCField.setText(currentContact.getCountryCode());
-        String initials = currentContact.getFirstName().toUpperCase().charAt(0) + ""
-                + currentContact.getLastName().toUpperCase().charAt(0);
+        String initials = "";
+        if(currentContact.getFirstName().length() > 0) {
+            initials += currentContact.getFirstName().toUpperCase().charAt(0);
+        }
+
+        if(currentContact.getLastName().length() > 0) {
+            initials += currentContact.getLastName().toUpperCase().charAt(0);
+        }
+
         initialsView.setText(initials);
     }
 }

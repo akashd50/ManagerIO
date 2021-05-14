@@ -50,4 +50,8 @@ public class Contact extends AObject {
     public void setOwningUser(AppUser owningUser) {
         this.owningUser = owningUser;
     }
+
+    public String toString() {
+        return "{ " + firstName + ", " + lastName + " | " + countryCode + "-" + mobileNo + " }";
+    }
 }

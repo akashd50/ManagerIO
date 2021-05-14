@@ -7,5 +7,6 @@ public class AppUserContract {
         public static final String TABLE_NAME = "users";
         public static final String USERNAME = "username";
         public static final String USER_EMAIL = "user_email";
+        public static final String CONTACTS_IMPORTED = "contacts_imported";
     }
 }

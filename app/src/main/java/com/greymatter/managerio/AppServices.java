@@ -20,6 +20,10 @@ public class AppServices {
         }
     }
 
+    public static void updateActiveUser() {
+        DBServices.getUsersDBHelper().update(activeUser);
+    }
+
     public static AppUser getActiveUser() {
         return activeUser;
     }

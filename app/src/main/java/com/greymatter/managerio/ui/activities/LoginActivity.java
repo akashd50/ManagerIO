@@ -15,6 +15,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.greymatter.managerio.AppServices;
 import com.greymatter.managerio.R;
+import com.greymatter.managerio.db.ContactsImporter;
 import com.greymatter.managerio.db.DBServices;
 import com.greymatter.managerio.objects.AppUser;
 
